@@ -4,7 +4,7 @@
   "description": "Cloning Youtube with vanilla and node JS",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon --exec babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/wglee0511/wetube#readme",
   "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
