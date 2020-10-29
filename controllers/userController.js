@@ -1,11 +1,11 @@
 
 // global
-export const join = (req, res) => res.send("join"); 
-export const login = (req, res) => res.send("login"); 
-export const logout = (req, res) => res.send("logout"); 
+export const join = (req, res) => res.render("join",{pageTitle:"Join"}); 
+export const login = (req, res) => res.render("login",{pageTitle:"Login"}); 
+export const logout = (req, res) => res.render("logout",{pageTitle:"Logout"}); 
 
 //user
-export const users = (req, res) => res.send("users");
-export const userDetail = (req, res) => res.send("userDetail");
-export const editProfile = (req, res) => res.send("editProfile");
-export const changePassward = (req, res) => res.send("changePassward");
+export const users = (req, res) => res.render("users",{pageTitle:"Users"});
+export const userDetail = (req, res) => res.render("userDetail",{pageTitle:"User Detail"});
+export const editProfile = (req, res) => res.render("editProfile",{pageTitle:"Edit Profile"});
+export const changePassward = (req, res) => res.render("changePassward",{pageTitle:"Change Passward"});
