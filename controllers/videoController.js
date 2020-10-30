@@ -1,5 +1,9 @@
+import {videos} from "../db"
+
 //global
-export const home = (req, res) => res.render("home",{pageTitle:"Home"}); // inside of render is pug file.
+export const home = (req, res) => {
+    res.render("home",{pageTitle:"Home", videos})
+}; // inside of render is pug file.
 
 export const search =(req, res) => { 
     const {query:{term : searchingBy }} = req; // const searchingBy = req.query.term;
@@ -7,7 +11,6 @@ export const search =(req, res) => {
 };
 
 //video
-export const videos = (req, res) => res.render("videos",{pageTitle:"Videos"});
 
 export const upload = (req, res) => res.render("upload",{pageTitle:"Upload"});
 
