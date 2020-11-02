@@ -6,7 +6,7 @@ export const videos = [
         title: "Video awesome",
         description : "lalalal",
         views : 24,
-        videoFile : "https://youtu.be/eDEFolvLn0A",
+        videoFile : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
         creator: {
             id:121212,
             name:"racoon",
@@ -18,7 +18,7 @@ export const videos = [
         title: "Video  ",
         description : "lalalal",
         views : 24,
-        videoFile : "https://youtu.be/eDEFolvLn0A",
+        videoFile : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
         creator: {
             id:121212,
             name:"racoon",
@@ -30,7 +30,7 @@ export const videos = [
         title: " awesome",
         description : "lalalal",
         views : 24,
-        videoFile : "https://youtu.be/eDEFolvLn0A",
+        videoFile : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
         creator: {
             id:121212,
             name:"racoon",
