@@ -1,40 +1,15 @@
-//fake database
+import mongoose from "mongoose";
 
-export const videos = [
-    {
-        id:324393,
-        title: "Video awesome",
-        description : "lalalal",
-        views : 24,
-        videoFile : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-        creator: {
-            id:121212,
-            name:"racoon",
-            email:"izone@wizone.com"
-        }
-    },
-    {
-        id:222333,
-        title: "Video  ",
-        description : "lalalal",
-        views : 24,
-        videoFile : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-        creator: {
-            id:121212,
-            name:"racoon",
-            email:"izone@wizone.com"
-        }
-    },
-    {
-        id:123414,
-        title: " awesome",
-        description : "lalalal",
-        views : 24,
-        videoFile : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
-        creator: {
-            id:121212,
-            name:"racoon",
-            email:"izone@wizone.com"
-        }
-    }
-]
+mongoose.connect("mongodb://localhost:27017/we-tube",
+{
+    useNewUrlParser:true,
+    useFindAndModify:false
+});
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log(" ✅ Connected to DB");
+const handleError = () => console.log(` 💔 Error on DB connnection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error",handleError);
