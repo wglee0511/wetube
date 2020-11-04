@@ -23,10 +23,10 @@ export const search =(req, res) => {
 export const getUpload = (req, res) => res.render("upload",{pageTitle:"Upload"});
 
 export const postUpload = (req, res) => {
-   const  { body : { file, title, description} }=req;
-
+   const {body, file} = req;
+   const obj = JSON.parse(JSON.stringify(body));
+   console.log(obj,file);
    // To Do Upload and Save video
-
    res.redirect(routes.videoDetail(121212));
 }
 
