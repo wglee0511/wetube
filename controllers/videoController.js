@@ -22,12 +22,20 @@ export const search =(req, res) => {
 
 export const getUpload = (req, res) => res.render("upload",{pageTitle:"Upload"});
 
-export const postUpload = (req, res) => {
-   const {body, file} = req;
-   const obj = JSON.parse(JSON.stringify(body));
-   console.log(obj,file);
+export const postUpload = async (req, res) => {
+   const {
+       body : { title, description},
+       file : { path } 
+    } = req;
+
+    const newVideo = await Video.create({
+        fileUrl : path,
+        title,
+        description
+    })
+    console.log(newVideo);
    // To Do Upload and Save video
-   res.redirect(routes.videoDetail(121212));
+   res.redirect(routes.videoDetail(newVideo.id));
 }
 
 export const videoDetail = (req, res) => res.render("videoDetail",{pageTitle:"Video Detail"});
