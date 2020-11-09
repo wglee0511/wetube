@@ -13,8 +13,16 @@ export const home = async (req, res) => {
 }; // inside of render is pug file.
    // async is function of Javascript for waiting next part
 
-export const search =(req, res) => { 
+export const search = async (req, res) => { 
     const {query:{term : searchingBy }} = req; // const searchingBy = req.query.term;
+    let videos = [];
+    try{
+        videos = await Video.find({ title : {$regex : searchingBy, $options : "i"}})
+         // Video.find({ title : searchingBy}) is just find whole word.
+         // i is mean "insensitive" ex) N = n etc...
+        }catch(error){
+        console.log(error);
+    }
     res.render("search",{pageTitle:"Search",searchingBy,videos}); // at searchingBy : searchingBy
 };
 
@@ -86,7 +94,7 @@ export const deleteVideo = async (req, res) => {
     try{
         await Video.findOneAndRemove({_id : id});
     } catch(error) {
-        
+        console.log(error);
     }
     res.redirect(routes.home);
 }
