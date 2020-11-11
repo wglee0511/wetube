@@ -9,10 +9,19 @@ const OUTPUT_DIR = path.join(__dirname, "static");
 
 
 const config = {
-    entry : ENTRY_FILE,
+    entry : ["@babel/polyfill",ENTRY_FILE],
     mode : MODE,
     module : {
         rules : [
+            {
+                test : /\.(js)$/,
+                use : {
+                    loader: 'babel-loader',
+                    options: {
+                      presets: ['@babel/preset-env']
+                    }
+                  }
+            },
             {
                 test : /\.(scss)$/,
                 use : [
@@ -27,12 +36,10 @@ const config = {
                             options : {
                                postcssOptions : {
                                    plugins : [
-                                        [
-                                            "autoprefixer",{
-                                                //options
-                                                browsers : "cover 99.5%"
-                                            }
-                                        ]
+                                    autoprefixer({
+                                        //options
+                                        browsers : "cover 99.5%"
+                                    })
                                    ]
                                }
                             }

@@ -13,7 +13,8 @@ const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug"); // set(name, value) setting view engine -> pug
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads"));//DB
+app.use("/static", express.static("static"));//CSS
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
