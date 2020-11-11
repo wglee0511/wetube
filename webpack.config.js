@@ -1,5 +1,6 @@
 const path = require("path");
-const Extract = require("extract-text-webpack-plugin");
+const ExtractCSS = require("mini-css-extract-plugin");
+const autoprefixer = require("autoprefixer");
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
@@ -14,17 +15,33 @@ const config = {
         rules : [
             {
                 test : /\.(scss)$/,
-                use : Extract.extract([
-                    {
-                        loader : "css-loader"
-                    },
-                    {
-                        loader : "postcss-loader"
-                    },
-                    {
-                        loader : "sass-loader"
-                    }
-                ])
+                use : [
+                        {
+                            loader : ExtractCSS.loader
+                        },
+                        {
+                            loader : "css-loader"
+                        },
+                        {
+                            loader : "postcss-loader",
+                            options : {
+                               postcssOptions : {
+                                   plugins : [
+                                        [
+                                            "autoprefixer",{
+                                                //options
+                                                browsers : "cover 99.5%"
+                                            }
+                                        ]
+                                   ]
+                               }
+                            }
+                        },
+                        {
+                            loader : "sass-loader"
+                        }
+                    
+                ]
                 //how to extract css text
                 
             }
@@ -32,9 +49,14 @@ const config = {
     },
     output : {
         path : OUTPUT_DIR,
-        filename : "[name].[format]"
+        filename : "[name].js"
         //output is must be object
-    }
+    },
+    plugins : [
+        new ExtractCSS({
+            filename : "styles.css"
+        })
+    ] 
 };
 
 module.exports = config;
