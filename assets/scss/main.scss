@@ -12,8 +12,22 @@ body {
 }
 
 main {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 80%;
+  margin-top: 90px;
+  margin-left: 150px;
   min-height: 70vh;
+}
+
+button,
+input {
+  padding: 7px 10px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  color: $black;
+  font-weight: 600;
+  &::placeholder {
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.7);
+  }
 }
