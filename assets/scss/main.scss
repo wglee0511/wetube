@@ -18,16 +18,36 @@ main {
   min-height: 70vh;
 }
 
+textarea,
 button,
-input {
+input:not([type="file"]),
+.fileUpload {
   padding: 7px 10px;
+  border: none;
   width: 100%;
+  background-color: white;
   border-radius: 5px;
   font-size: 14px;
   color: $black;
   font-weight: 600;
+  max-width: 320px;
+  resize: none;
   &::placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7);
   }
+}
+
+button {
+  border: none;
+  background-color: #b2bec3;
+  color: white;
+}
+button.delete {
+  background-color: #636e72;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
