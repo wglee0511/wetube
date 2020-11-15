@@ -1,10 +1,11 @@
 import routes from "../routes";
+import User from "../models/User";
 
 // global
 export const getJoin = (req, res) => {
     res.render("join",{pageTitle:"Join"});
 };
-export const postJoin = (req, res) => {
+export const postJoin = async (req, res) => {
     const {
         body:{name, email, passward, passward2}
     } = req;
@@ -12,9 +13,19 @@ export const postJoin = (req, res) => {
         res.status(400);
         res.render("join",{pageTitle:"Join"});
     }else{
-        // To Do : Register User
+        //Register User
+        try{
+            const user = await User({
+                name,
+                email
+            });
+            await User.register(user, passward);
+        } catch(error) {
+            console.log(error);
+        }
+
         // To Do : log user in
-        res.redirect(routes.home)
+        res.redirect(routes.home);
     }
     };
 
