@@ -8,9 +8,9 @@ export const getJoin = (req, res) => {
 };
 export const postJoin = async (req, res ,next) => {
     const {
-        body:{name, email, passward, passward2}
+        body:{name, email, password, password2}
     } = req;
-    if(passward !== passward2){
+    if(password !== password2){
         res.status(400);
         res.render("join",{pageTitle:"Join"});
     }else{
@@ -20,11 +20,11 @@ export const postJoin = async (req, res ,next) => {
                 name,
                 email
             });
-            await User.register(user, passward);
+            await User.register(user, password);
             next();
         } catch(error) {
             console.log(error);
-            res.redirect(routes.home);
+            //res.redirect(routes.home);
         }
         
 
