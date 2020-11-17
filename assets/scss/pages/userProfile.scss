@@ -1,0 +1,26 @@
+.user-profile {
+  display: flex;
+  width: 100%;
+  .user-profile__header {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    h4 {
+      display: block;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+  .user-profile__btns {
+    display: flex;
+    align-items: center;
+    button {
+      width: 150px;
+      margin-right: 25px;
+    }
+  }
+}
