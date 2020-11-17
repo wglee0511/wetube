@@ -79,6 +79,11 @@ export const logout = (req, res) => {
 
 //user
 
+export const getMe = (req, res) => {
+    res.render("userDetail",{pageTitle:"User Detail" , user : req.user});//user = current user
+}
+
 export const userDetail = (req, res) => res.render("userDetail",{pageTitle:"User Detail"});
+
 export const editProfile = (req, res) => res.render("editProfile",{pageTitle:"Edit Profile"});
 export const changePassward = (req, res) => res.render("changePassward",{pageTitle:"Change Passward"});

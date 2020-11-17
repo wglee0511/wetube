@@ -6,8 +6,9 @@ const multerVideo = multer({dest : "uploads/videos/"});
 export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = "WeTube";
     res.locals.routes = routes;
-    res.locals.user = req.user || null;
-
+    res.locals.loggedUser = req.user || null;
+    //third thing ex) routes is sending all files
+    //anather user is exist in controller
     next(); // couse this middleware is been between connection and routers
 };
 
