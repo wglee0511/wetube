@@ -69,19 +69,29 @@ export const githubLoginCallback = async (accessToken, refreshToken, profile, cb
 
 export const postGithubLogin = (req, res) => {
     res.redirect(routes.home);
-}
+};
+
+export const facebookLogin = passport.authenticate("facebook");
+
+export const facebookLoginCallback = (accessToken, refreshToken, profile, cb) => {
+    console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const postFacebookLogin = (req, res) => {
+
+};
 
 export const logout = (req, res) => {
     //To Do Process Log out
     req.logout();
     res.redirect(routes.home);
-} 
+};
 
 //user
 
 export const getMe = (req, res) => {
     res.render("userDetail",{pageTitle:"User Detail" , user : req.user});//user = current user
-}
+};
 
 export const userDetail = async (req, res) => {
     const { params : id } = req;
