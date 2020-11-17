@@ -226,6 +226,11 @@ input[type=submit] {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: #444444;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -455,10 +460,14 @@ input[type=submit] {
 }
 .social-login .social-login--github {
   background-color: #444444;
+}
+.social-login .social-login--github a {
   color: white;
 }
 .social-login .social-login--facebook {
   background-color: #3a5998;
+}
+.social-login .social-login--facebook a {
   color: white;
 }
 
