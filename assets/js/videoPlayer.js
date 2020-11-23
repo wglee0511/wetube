@@ -97,6 +97,14 @@ function handleDrag(event){
         target : { value }
     } = event;
     videoPlayer.volume = value;
+
+    if(volumeRange.value >= 0.6){
+        volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    } else if(volumeRange.value >= 0.2){
+        volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+    } else {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-off"></i>';
+    }
 }
 
 function init () {
