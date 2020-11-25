@@ -11,6 +11,7 @@ import MongoStore from "connect-mongo";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+import apiRouter from "./routers/apiRouter";
 import routes from "./routes";
 import { localsMiddleware } from "./middlewares";
 
@@ -45,5 +46,6 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter); //join login  search home etc...
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.api, apiRouter);
 
 export default app;
