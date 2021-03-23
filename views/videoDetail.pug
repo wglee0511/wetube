@@ -34,3 +34,6 @@ block content
                   each comment in video.comments.reverse()
                     li
                       span=comment.text
+                        if loggedUser && video.comments.creator === loggedUser.id
+                          a.form-container__link(href=routes.deleteComment(comments.ObjectId)) 
+                           span.fas.fa-minus
