@@ -2,7 +2,29 @@
 
 Cloning Youtube with vanilla and node JS
 
-## Pages :
+## Stack
+
+---
+
+- Backend
+
+  - Node.JS
+  - MongoDB
+  - Express
+  - Babel
+  - Webpack
+  - Passport
+
+- Frontend
+  - HTML5
+  - CSS3
+  - Pug
+
+---
+
+# Pages
+
+---
 
 - [x] home
 - [x] Join
@@ -13,4 +35,6 @@ Cloning Youtube with vanilla and node JS
 - [x] Change Passward
 - [x] Upload
 - [x] Video Detail
-- [x] Edit
+- [x] ## Edit
+
+---
